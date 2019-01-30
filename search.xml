@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[c++学习错误总结板]]></title>
+    <url>%2F2019%2F01%2F24%2Fc%2B%2B%E5%AD%A6%E4%B9%A0%E9%94%99%E8%AF%AF%E6%80%BB%E7%BB%93%E6%9D%BF%2F</url>
+    <content type="text"><![CDATA[本板记录学习c++遇到过的坑，以避免犯同样的错误。 ######数组越界出现题目：信息学奥赛一本通p1268,p1269,p1272 出现原因： c++的数组范围从0到n-1，如定义a[100]中如果访问a[100]是越界的，只到a[99]。mingw编译器在出现这种错误的时候会输出正确的答案，因此很难调试出来，且样例数据普遍较小，更增加了难度。 题目中出现了多个数据范围时应谨慎审题后确认哪个数组用哪个范围。 出现危害：导致了大量的无谓调试，一定要注意这种问题！]]></content>
+      <categories>
+        <category>编程学习</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>经验总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[公告栏]]></title>
     <url>%2F2018%2F12%2F22%2F%E5%85%AC%E5%91%8A%E6%A0%8F%2F</url>
     <content type="text"><![CDATA[域名欢迎收藏本博客！域名：q1blog.tk]]></content>
