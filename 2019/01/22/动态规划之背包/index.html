@@ -104,24 +104,25 @@
 
 
 
-  <meta name="description" content="流星终陨落">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://q1blog.tk/categories/index.html">
+  <meta name="description" content="背包问题是动态规划里的经典问题，大概分为01背包、完全背包和多重背包等三种。接下来一一介绍。需要注意的是，无论是背包问题还是其它动态规划问题，打表都是非常重要的步骤。如果大家有不明白或是程序出错要调试的时候，多多列表会带来很大帮助，不要因为懒而不列。 01背包问题描述有一个容量为m(m&amp;lt;=200)的背包和n(n&amp;lt;=30)个物品，第i件物品的重量为w[i]，价值为v[i]，请问怎样装能使">
+<meta name="keywords" content="C++,算法总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划之背包">
+<meta property="og:url" content="https://q1blog.tk/2019/01/22/动态规划之背包/index.html">
 <meta property="og:site_name" content="第一象限">
-<meta property="og:description" content="流星终陨落">
+<meta property="og:description" content="背包问题是动态规划里的经典问题，大概分为01背包、完全背包和多重背包等三种。接下来一一介绍。需要注意的是，无论是背包问题还是其它动态规划问题，打表都是非常重要的步骤。如果大家有不明白或是程序出错要调试的时候，多多列表会带来很大帮助，不要因为懒而不列。 01背包问题描述有一个容量为m(m&amp;lt;=200)的背包和n(n&amp;lt;=30)个物品，第i件物品的重量为w[i]，价值为v[i]，请问怎样装能使">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-19T12:47:15.321Z">
+<meta property="og:updated_time" content="2019-07-28T07:25:51.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="流星终陨落">
+<meta name="twitter:title" content="动态规划之背包">
+<meta name="twitter:description" content="背包问题是动态规划里的经典问题，大概分为01背包、完全背包和多重背包等三种。接下来一一介绍。需要注意的是，无论是背包问题还是其它动态规划问题，打表都是非常重要的步骤。如果大家有不明白或是程序出错要调试的时候，多多列表会带来很大帮助，不要因为懒而不列。 01背包问题描述有一个容量为m(m&amp;lt;=200)的背包和n(n&amp;lt;=30)个物品，第i件物品的重量为w[i]，价值为v[i]，请问怎样装能使">
 
 
 
 
 
 
-  <link rel="canonical" href="https://q1blog.tk/categories/">
+  <link rel="canonical" href="https://q1blog.tk/2019/01/22/动态规划之背包/">
 
 
 
@@ -131,7 +132,7 @@
   };
 </script>
 
-  <title>categories | 第一象限</title>
+  <title>动态规划之背包 | 第一象限</title>
   
 
 
@@ -250,7 +251,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -296,25 +297,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -363,70 +345,244 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://q1blog.tk/2019/01/22/动态规划之背包/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="安洛ex">
+      <meta itemprop="description" content="流星终陨落">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="第一象限">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">categories
-
-</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                目前共计 4 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/帮助/">帮助</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程学习/">编程学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/题解/">题解</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 class="post-title" itemprop="name headline">动态规划之背包
+
+              
+            
+          </h2>
         
-      </div>
+
+        <div class="post-meta">
+
+                    
+
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-22 14:51:31" itemprop="dateCreated datePublished" datetime="2019-01-22T14:51:31+08:00">2019-01-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-28 15:25:51" itemprop="dateModified" datetime="2019-07-28T15:25:51+08:00">2019-07-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程学习/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/22/动态规划之背包/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/22/动态规划之背包/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>背包问题是动态规划里的经典问题，大概分为01背包、完全背包和多重背包等三种。接下来一一介绍。需要注意的是，无论是背包问题还是其它动态规划问题，打表都是非常重要的步骤。如果大家有不明白或是程序出错要调试的时候，多多列表会带来很大帮助，不要因为懒而不列。</p>
+<h2 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>有一个容量为m(m&lt;=200)的背包和n(n&lt;=30)个物品，第i件物品的重量为w[i]，价值为v[i]，请问怎样装能使背包内物品价值最大？(w,v各自的总和均小于c++long类型)</p>
+<p>样例输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">10 4</span><br><span class="line">2 1</span><br><span class="line">3 3</span><br><span class="line">4 5</span><br><span class="line">7 9</span><br></pre></td></tr></table></figure></p>
+<p>样例输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12</span><br></pre></td></tr></table></figure></p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>动态规划的问题要满足两个原则：无后效性原则和最优化原理。这里01背包问题是满足的，具体证明可自行百度，这里就不赘述了。<br>动态规划要知道状态、状态转移方程。这里以每个物品为状态，放或不放即为决策。如果用一个二维数组f[i][j]存储最优决策，表示前i个物品在占用小于j的重量的情况下的最大价值。</p>
+<p>则状态转移方程：</p>
+<p>当j&lt;w[i]时：<br>f[i][j]=f[i-1][j];(当前占用质量不足放入新物品，则不放)</p>
+<p>当j&gt;=w[i]时：<br>f[i][j]=max(f[i-1][j],f[i-1][j-w[i]]+v[i]);(可以放入新物品，则选择值最大的)</p>
+<p>进一步思考可以发现，我们最后想求的最大值只是最后一次选择后的结果，前面的结果并不需要储存。因此可以有空间优化，方程优化为：<br>f[j]=max(f[j],f[j-w[i]]+v[i]);<br>因此可以得到代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long m,n,w[35],v[35],f[205];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin&gt;&gt;m&gt;&gt;n;</span><br><span class="line">    for (long i=0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;w[i]&gt;&gt;v[i];</span><br><span class="line">    &#125;</span><br><span class="line">    memset(f,0,sizeof(f));</span><br><span class="line">    for (long i=0;i&lt;n;i++)</span><br><span class="line">        for (long j=m;j&gt;=0;j--)</span><br><span class="line">        &#123;</span><br><span class="line">            if (j&gt;=w[i])</span><br><span class="line">            f[j]=max(f[j],f[j-w[i]]+v[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    cout&lt;&lt;f[m];</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里要注意，第二重循环要用逆序。为什么呢？这是因为我们要求的当前状态取决于前一个状态，即之前的物品放与不放。如果使用正序循环，则f[j-w[i]]很可能就已经是放了当前物品的结果，如果再放就会出现多次选择同一物品。这是与题意不符的。</p>
+<h2 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3>
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果您觉得这个博客对您有所帮助，请收藏+打赏！谢谢！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://s1.ax1x.com/2018/12/22/FsLxlq.jpg" alt="安洛ex 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/算法总结/" rel="tag"># 算法总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/22/公告栏/" rel="next" title="公告栏">
+                <i class="fa fa-chevron-left"></i> 公告栏
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/24/c++学习错误总结板/" rel="prev" title="c++学习错误总结板">
+                c++学习错误总结板 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -460,8 +616,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -575,6 +740,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01背包"><span class="nav-number">1.</span> <span class="nav-text">01背包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完全背包"><span class="nav-number">2.</span> <span class="nav-text">完全背包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
