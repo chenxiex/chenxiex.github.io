@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[noip2017提高组d2t1奶酪解题报告]]></title>
+    <url>%2F2019%2F07%2F29%2Fnoip2017%E6%8F%90%E9%AB%98%E7%BB%84d2t1%E5%A5%B6%E9%85%AA%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
+    <content type="text"><![CDATA[解题思路因为是关于路径的问题，所以想到了用最短路(spfa)来写。 因为只需考虑能不能而无需考虑路径长，所以只要设定一个数组标记每个空洞是否与底面连通，然后将这些空洞全部入队，之后逐一出队并更新与这些空洞相交或相切的空洞，再将这些空洞也入队来更新其它的空洞。如果有与顶面连通的空洞入队则代表能，如果队列空了也找不到与顶面连通的点就代表不能。另外，因为每个点无需重复入队出队，所以队列的大小设为n即可。 另外，为了节省时间以及考虑只有一个空洞的情况，还应在输入时判断是否有空洞直接连通顶面和底面，如果有就存在从底面到顶面的路径，无需跑最短路。但是还是需要将所有数据读入完了才能退出循环，不能直接break，否则会导致程序无法结束。 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859#include&lt;iostream&gt;#include&lt;cmath&gt;#include&lt;cstring&gt;using namespace std;struct s1&#123; long x,y,z;&#125;;long t,n,h,r; s1 hole[10001]; bool d[10001]=&#123;false&#125;; long q[10001],qh=0,qt=0;double dist(long i,long j)&#123; long x1=hole[i].x,x2=hole[j].x,y1=hole[i].y,y2=hole[j].y,z1=hole[i].z,z2=hole[j].z; return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2)+(z1-z2)*(z1-z2));&#125;int main()&#123; cin&gt;&gt;t; for (long i=0;i&lt;t;i++) &#123; memset(d,false,sizeof(d)); memset(hole,0,sizeof(hole)); memset(q,-1,sizeof(q)); qh=0; qt=0; cin&gt;&gt;n&gt;&gt;h&gt;&gt;r; bool f=false; for (long j=0;j&lt;n;j++) &#123; cin&gt;&gt;hole[j].x&gt;&gt;hole[j].y&gt;&gt;hole[j].z; if (hole[j].z&lt;=r) &#123; d[j]=true; q[qt++]=j; if (hole[j].z+r&gt;=h) &#123; f=true;//此处不能直接break &#125; &#125; &#125; while (qh&lt;qt&amp;&amp;!f) &#123; for (long j=0;j&lt;n;j++) &#123; if (!d[j]&amp;&amp;dist(q[qh],j)&lt;=2*r) &#123; d[j]=true; q[qt++]=j; if (hole[j].z+r&gt;=h) &#123; f=true; break; &#125; &#125; &#125; qh++; &#125; cout&lt;&lt;(f?&quot;Yes&quot;:&quot;No&quot;)&lt;&lt;endl; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>编程学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>noip</tag>
+        <tag>解题报告</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[noip2017提高组d1t2时间复杂度解题报告]]></title>
     <url>%2F2019%2F07%2F28%2Fnoip2017%E6%8F%90%E9%AB%98%E7%BB%84d1t2%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[解题思路很明显是一道用栈的模拟题。但是由于输入格式比较特殊，涉及到字符串处理，且情况比较多，需小心调试。 首先要解决的就是输入问题。因为有空格或回车符分隔，所以可以直接用cin读入t和l，然后用getline读入时间复杂度和代码。时间复杂度用字符串o存储，代码用字符串数组r存储。 然后要解决字符串的处理问题。可以用一个子程序提取字符串中的数据。这里用子程序getn来提取字符串中第一个数或n。如果提取到数则返回数，提取到n则返回-1234。1234567891011121314151617long getn(string a)&#123; long ans=0; bool f=false; for (long i=0;i&lt;a.size();i++) &#123; if (a[i]==&apos;n&apos;) return -1234; if (a[i]&gt;=&apos;0&apos;&amp;&amp;a[i]&lt;=&apos;9&apos;) &#123; f=true; ans=ans*10+(a[i]-&apos;0&apos;); continue; &#125; if (f) return ans; &#125; if (f) return ans;&#125; 因为本题中时间复杂度实际上就是由n的次数(w)决定的，所以用子程序geto提取输入的时间复杂度存储在变量w中。12345678910111213void geto(string o)&#123; long p=o.find(&quot;(&quot;); if (o[p+1]==&apos;1&apos;) &#123; w=0; return; &#125;else&#123; p=o.find(&quot;^&quot;); string a1=o.substr(p+1,o.size()-p); w=getn(a1); &#125;&#125; 之后就进入问题的核心了。首先明确目的有两个：计算时间复杂度和判错。判错这里有个简单的优化：如果程序行数为奇数，则循环一定无法配对，是错的，可以直接输出ERR并continue。如果是偶数，就模拟循环。先不考虑程序有错误的情况。用字符数组z来模拟栈。如果一行程序以’F’开头则压栈(将变量名i存入栈中)，并提取出起始值x和终值y。如果x!=n且y=n，就将次数qw+1，否则为常数次数，无需理会。如果以’E’开头则弹栈。 接下来再考虑有错误的情况。有以下几种： ‘F’比’E’多：只需在子程序退出前检查栈是否为空即可。 ‘E’比’F’多：只需在弹栈是检查有无错误即可。 x比y大：这种情况下，程序并不会进入循环。只需定义一个标记变量flag，在进入这个循环压栈时标记，之后的代码正常压栈弹栈但不计数，在退出这个循环时取消标记即可。 还有一个特殊情况就是有多个循环并列。此时要引入一个布尔型数组yx。yx[i]标记栈中i号元素(z[i])入栈时是否进行了次数的计数。如果有，则在该元素弹栈时要将次数减1。 最后，在每次弹栈前判断，使答案mqw等于最大的求得次数qw，之后判断mqw==w？即可。 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108#include&lt;iostream&gt;#include&lt;string&gt;#include&lt;cstdio&gt;#include&lt;cstring&gt;using namespace std;long t,l,w,qw=0,mqw=0,t1=0; string r[101],o; bool f[30]=&#123;false&#125;,yx[201]=&#123;false&#125;; char z[201],flag=&apos;0&apos;;long getn(string a)&#123; long ans=0; bool f=false; for (long i=0;i&lt;a.size();i++) &#123; if (a[i]==&apos;n&apos;) return -1234; if (a[i]&gt;=&apos;0&apos;&amp;&amp;a[i]&lt;=&apos;9&apos;) &#123; f=true; ans=ans*10+(a[i]-&apos;0&apos;); continue; &#125; if (f) return ans; &#125; if (f) return ans;&#125;void geto(string o)&#123; long p=o.find(&quot;(&quot;); if (o[p+1]==&apos;1&apos;) &#123; w=0; return; &#125;else&#123; p=o.find(&quot;^&quot;); string a1=o.substr(p+1,o.size()-p); w=getn(a1); &#125;&#125;bool xh()&#123; for (long i=0;i&lt;l;i++) &#123; if (r[i][0]==&apos;F&apos;) &#123; char bl=r[i][2]; if (f[(bl-&apos;a&apos;)]) return false; z[t1++]=bl; f[(bl-&apos;a&apos;)]=true; string num=r[i].substr(4,r[i].size()-3); long beg=0,end=0; beg=getn(num); num.erase(0,num.find(&quot; &quot;)); end=getn(num); if (beg==-1234&amp;&amp;end!=-1234||beg&gt;end&amp;&amp;end!=-1234) &#123; flag=bl; &#125;else&#123; if (end==-1234&amp;&amp;beg!=-1234&amp;&amp;flag==&apos;0&apos;) &#123; yx[t1-1]=true; qw++; &#125; &#125; &#125; if (r[i][0]==&apos;E&apos;) &#123; if (t1==0) return false; mqw=max(mqw,qw); t1--; if (yx[t1]) qw--; f[(z[t1]-&apos;a&apos;)]=false; yx[t1]=false; if (z[t1]==flag) flag=&apos;0&apos;; &#125; &#125; if (t1!=0) return false; return true;&#125;int main()&#123; cin&gt;&gt;t; for (long i=0;i&lt;t;i++) &#123; cin&gt;&gt;l; mqw=0; qw=0; t1=0; flag=&apos;0&apos;; memset(z,0,sizeof(z)); memset(f,false,sizeof(f)); memset(yx,false,sizeof(yx)); getline(cin,o); geto(o); for (long j=0;j&lt;l;j++) &#123; getline(cin,r[j]); &#125; if (l%2!=0) &#123; cout&lt;&lt;&quot;ERR&quot;&lt;&lt;endl; continue; &#125; if (xh()) &#123; cout&lt;&lt;(mqw==w?&quot;Yes&quot;:&quot;No&quot;)/*&lt;&lt;&quot; &quot;&lt;&lt;mqw */&lt;&lt;endl; &#125; else cout&lt;&lt;&quot;ERR&quot;&lt;&lt;endl; &#125; return 0;&#125;]]></content>
@@ -9,6 +22,8 @@
       </categories>
       <tags>
         <tag>C++</tag>
+        <tag>noip</tag>
+        <tag>解题报告</tag>
       </tags>
   </entry>
   <entry>
@@ -20,6 +35,8 @@
       </categories>
       <tags>
         <tag>C++</tag>
+        <tag>noip</tag>
+        <tag>解题报告</tag>
       </tags>
   </entry>
   <entry>
