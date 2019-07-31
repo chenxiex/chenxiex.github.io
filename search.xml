@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[noip2018提高组d1t2货币系统解题报告]]></title>
+    <url>%2F2019%2F07%2F31%2Fnoip2018%E6%8F%90%E9%AB%98%E7%BB%84d1t2%E8%B4%A7%E5%B8%81%E7%B3%BB%E7%BB%9F%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
+    <content type="text"><![CDATA[解题思路这道题神似noip2017里面的小凯的疑惑，但是好想很多。 显然，在这道题中，对于一个货币系统如果有一个货币面值可以被其它面值的货币表示出来，那么这个货币面值就可以被删掉（因为完全可以由其它的代替）。但是，如果一个货币面值无法被其它面值的货币表示出来，那么它就一定不能删掉，不然会导致有一些本来可以被组出来的组不出来（最明显的例子就是它本身）。所以，我们只要找出可以被其它面值的货币表示出来的货币面值数量，从总数中减去就好了。这可以用完全背包实现。根据常识，因为面值都是非负的，所以每个面值只有可能被比它小的面值组成，所以先排序，再从小到大进行完全背包即可。 代码1234567891011121314151617181920212223242526272829303132333435#include&lt;iostream&gt;#include&lt;algorithm&gt;#include&lt;cstring&gt;using namespace std;long t; long n,a[150]; bool f[30000];int main()&#123; cin&gt;&gt;t; for (long i=0;i&lt;t;i++) &#123; memset(a,0,sizeof(a)); memset(f,false,sizeof(f)); cin&gt;&gt;n; long ans=n; for (long j=0;j&lt;n;j++) &#123; cin&gt;&gt;a[j]; &#125; f[0]=true; sort(a,a+n); for (long j=0;j&lt;n;j++) &#123; if (f[a[j]]) &#123; ans--; continue; &#125; for (long k=a[j];k&lt;=a[n-1];k++) &#123; f[k]=(f[k]||f[k-a[j]]); &#125; &#125; cout&lt;&lt;ans&lt;&lt;endl; &#125;&#125;]]></content>
+      <categories>
+        <category>编程学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>解题报告</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[noip2017提高组d2t2宝藏解题报告]]></title>
     <url>%2F2019%2F07%2F31%2Fnoip2017%E6%8F%90%E9%AB%98%E7%BB%84d2t2%E5%AE%9D%E8%97%8F%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[解题思路因为不知道怎么dp，所以就写了个dfs。 每次dfs枚举所有已扩展的点和要扩展的点，逐一连接尝试就行。加上最优化剪枝和搜索序的改进（每次优先扩展短的道路）还有一些小剪枝后就可以了。 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;algorithm&gt;using namespace std;long n,m,ans=0x3f3f3f3f,to[20][20],num[20],d[20],a[20][20],tmp=0,p,s[20],tot,cnt;bool cmp(int c, int b) &#123; return a[p][c]&lt;a[p][b];&#125;void dfs(long ncnt,long node)&#123; for (long i=ncnt;i&lt;=cnt;i++) &#123; long i1=s[i]; if (tot+tmp*d[i1]&gt;=ans) return; for (long j=node;j&lt;=num[i1];j++) &#123; if (d[to[i1][j]]==0) &#123; long j1=to[i1][j]; s[++cnt]=j1; d[j1]=d[i1]+1; tmp-=a[j1][to[j1][1]]; long tot1=tot; tot+=a[i1][j1]*d[i1]; dfs(i,j+1); d[j1]=0; tmp+=a[j1][to[j1][1]]; tot=tot1; cnt--; &#125; &#125; node=1; &#125; if (cnt==n) &#123; ans=min(ans,tot); return; &#125;&#125;int main()&#123; cin&gt;&gt;n&gt;&gt;m; memset(a,0x3f,sizeof(a)); for (long i=0;i&lt;m;i++) &#123; long x,y,z; cin&gt;&gt;x&gt;&gt;y&gt;&gt;z; if (z&gt;a[x][y]) continue; if (a[x][y]==0x3f3f3f3f) &#123; to[x][++num[x]]=y; to[y][++num[y]]=x; &#125; a[x][y]=a[y][x]=z; &#125; for(long i=1;i&lt;=n;i++) &#123; p=i; sort(to[i]+1,to[i]+num[i]+1,cmp); tmp+=a[i][to[i][1]]; &#125; for (long i=1;i&lt;=n;i++) &#123; memset(s,0,sizeof(s)); tot=0; cnt=1; s[1]=i; tmp-=a[i][to[i][1]]; d[i]=1; dfs(1,1); d[i]=0; tmp+=a[i][to[i][1]]; &#125; cout&lt;&lt;ans; return 0;&#125;]]></content>

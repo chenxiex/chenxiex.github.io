@@ -104,25 +104,25 @@
 
 
 
-  <meta name="description" content="题目链接： P1366二叉树输出题目：【题目描述】 树的凹入表示法主要用于树的屏幕或打印输出，其表示的基本思想是兄弟间等长，一个结点的长度要不小于其子结点的长度。二叉树也可以这样表示，假设叶结点的长度为1，一个非叶结点的长度等于它的左右子树的长度之和。 一棵二叉树的一个结点用一个字母表示（无重复），输出时从根结点开始： 每行输出若干个结点字符（相同字符的个数等于该结点长度）， 如果该结点有左子树就">
+  <meta name="description" content="解题思路这道题神似noip2017里面的小凯的疑惑，但是好想很多。 显然，在这道题中，对于一个货币系统如果有一个货币面值可以被其它面值的货币表示出来，那么这个货币面值就可以被删掉（因为完全可以由其它的代替）。但是，如果一个货币面值无法被其它面值的货币表示出来，那么它就一定不能删掉，不然会导致有一些本来可以被组出来的组不出来（最明显的例子就是它本身）。所以，我们只要找出可以被其它面值的货币表示出来的">
 <meta name="keywords" content="C++,解题报告">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息学奥赛一本通题库P1366二叉树输出btout">
-<meta property="og:url" content="https://q1blog.tk/2019/04/11/信息学奥赛一本通题库P1366二叉树输出btout/index.html">
+<meta property="og:title" content="noip2018提高组d1t2货币系统解题报告">
+<meta property="og:url" content="https://q1blog.tk/2019/07/31/noip2018提高组d1t2货币系统解题报告/index.html">
 <meta property="og:site_name" content="第一象限">
-<meta property="og:description" content="题目链接： P1366二叉树输出题目：【题目描述】 树的凹入表示法主要用于树的屏幕或打印输出，其表示的基本思想是兄弟间等长，一个结点的长度要不小于其子结点的长度。二叉树也可以这样表示，假设叶结点的长度为1，一个非叶结点的长度等于它的左右子树的长度之和。 一棵二叉树的一个结点用一个字母表示（无重复），输出时从根结点开始： 每行输出若干个结点字符（相同字符的个数等于该结点长度）， 如果该结点有左子树就">
+<meta property="og:description" content="解题思路这道题神似noip2017里面的小凯的疑惑，但是好想很多。 显然，在这道题中，对于一个货币系统如果有一个货币面值可以被其它面值的货币表示出来，那么这个货币面值就可以被删掉（因为完全可以由其它的代替）。但是，如果一个货币面值无法被其它面值的货币表示出来，那么它就一定不能删掉，不然会导致有一些本来可以被组出来的组不出来（最明显的例子就是它本身）。所以，我们只要找出可以被其它面值的货币表示出来的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-29T07:45:47.228Z">
+<meta property="og:updated_time" content="2019-07-31T07:54:16.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="信息学奥赛一本通题库P1366二叉树输出btout">
-<meta name="twitter:description" content="题目链接： P1366二叉树输出题目：【题目描述】 树的凹入表示法主要用于树的屏幕或打印输出，其表示的基本思想是兄弟间等长，一个结点的长度要不小于其子结点的长度。二叉树也可以这样表示，假设叶结点的长度为1，一个非叶结点的长度等于它的左右子树的长度之和。 一棵二叉树的一个结点用一个字母表示（无重复），输出时从根结点开始： 每行输出若干个结点字符（相同字符的个数等于该结点长度）， 如果该结点有左子树就">
+<meta name="twitter:title" content="noip2018提高组d1t2货币系统解题报告">
+<meta name="twitter:description" content="解题思路这道题神似noip2017里面的小凯的疑惑，但是好想很多。 显然，在这道题中，对于一个货币系统如果有一个货币面值可以被其它面值的货币表示出来，那么这个货币面值就可以被删掉（因为完全可以由其它的代替）。但是，如果一个货币面值无法被其它面值的货币表示出来，那么它就一定不能删掉，不然会导致有一些本来可以被组出来的组不出来（最明显的例子就是它本身）。所以，我们只要找出可以被其它面值的货币表示出来的">
 
 
 
 
 
 
-  <link rel="canonical" href="https://q1blog.tk/2019/04/11/信息学奥赛一本通题库P1366二叉树输出btout/">
+  <link rel="canonical" href="https://q1blog.tk/2019/07/31/noip2018提高组d1t2货币系统解题报告/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>信息学奥赛一本通题库P1366二叉树输出btout | 第一象限</title>
+  <title>noip2018提高组d1t2货币系统解题报告 | 第一象限</title>
   
 
 
@@ -359,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://q1blog.tk/2019/04/11/信息学奥赛一本通题库P1366二叉树输出btout/">
+    <link itemprop="mainEntityOfPage" href="https://q1blog.tk/2019/07/31/noip2018提高组d1t2货币系统解题报告/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="安洛ex">
@@ -376,7 +376,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">信息学奥赛一本通题库P1366二叉树输出btout
+          <h2 class="post-title" itemprop="name headline">noip2018提高组d1t2货币系统解题报告
 
               
             
@@ -405,24 +405,12 @@
                 
               
 
-              <time title="创建时间：2019-04-11 22:10:05" itemprop="dateCreated datePublished" datetime="2019-04-11T22:10:05+08:00">2019-04-11</time>
+              <time title="创建时间：2019-07-31 15:45:01 / 修改时间：15:54:16" itemprop="dateCreated datePublished" datetime="2019-07-31T15:45:01+08:00">2019-07-31</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-29 15:45:47" itemprop="dateModified" datetime="2019-07-29T15:45:47+08:00">2019-07-29</time>
               
             
           </span>
@@ -454,8 +442,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/11/信息学奥赛一本通题库P1366二叉树输出btout/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/11/信息学奥赛一本通题库P1366二叉树输出btout/" itemprop="commentCount"></span>
+                <a href="/2019/07/31/noip2018提高组d1t2货币系统解题报告/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/07/31/noip2018提高组d1t2货币系统解题报告/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -483,25 +471,9 @@
       
 
       
-        <p>题目链接： <a href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1366" target="_blank" rel="noopener">P1366二叉树输出</a><br>题目：<br>【题目描述】</p>
-<p>树的凹入表示法主要用于树的屏幕或打印输出，其表示的基本思想是兄弟间等长，一个结点的长度要不小于其子结点的长度。二叉树也可以这样表示，假设叶结点的长度为1，一个非叶结点的长度等于它的左右子树的长度之和。</p>
-<p>一棵二叉树的一个结点用一个字母表示（无重复），输出时从根结点开始：</p>
-<p>每行输出若干个结点字符（相同字符的个数等于该结点长度），</p>
-<p>如果该结点有左子树就递归输出左子树；</p>
-<p>如果该结点有右子树就递归输出右子树。</p>
-<p>假定一棵二叉树一个结点用一个字符描述，现在给出先序和中序遍历的字符串，用树的凹入表示法输出该二叉树。</p>
-<p>【输入】</p>
-<p>两行，每行是由字母组成的字符串（一行的每个字符都是唯一的），分别表示二叉树的先序遍历和中序遍历的序列。</p>
-<p>【输出】</p>
-<p>行数等于该树的结点数，每行的字母相同。</p>
-<p>【输入样例】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ABCDEFG</span><br><span class="line">CBDAFEG</span><br></pre></td></tr></table></figure></p>
-<p>【输出样例】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AAAA</span><br><span class="line">BB</span><br><span class="line">C</span><br><span class="line">D</span><br><span class="line">EE</span><br><span class="line">F</span><br><span class="line">G</span><br></pre></td></tr></table></figure></p>
-<p>解题思路：</p>
-<p>1.看到这道题的时候，第一个想法是建树，根据先序遍历和中序遍历，用一个结构体(struct)数组来存储树，记录每个节点和它的左右子节点、父节点。建好树后从根节点递归求得长度。我看了网络上的一些题解，也是使用了这种方法，这里就不再赘述。这里提供另一种解法。</p>
-<p>2.观察题目，题目中输出的顺序要求是：“输出时从根结点开始：每行输出若干个结点字符（相同字符的个数等于该结点长度），如果该结点有左子树就递归输出左子树；如果该结点有右子树就递归输出右子树。”想一想，这不是就是先序遍历的递归顺序吗？正好题目中给出了先序遍历，这样就有了做法：</p>
-<p>首先，先序遍历的第一个就是根节点，因此可以在中序遍历中找到根节点，分为左右子树进行递归求长度；递归中对于每一子树，从前到后枚举先序遍历的节点，并在子树中寻找，如果找到了那就是这颗子树的根(因为先序遍历是根在前)，再次递归。递归的边界条件是如果只有子树中只有一个节点就返回1。</p>
-<p>示例程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long a[256]; string q,z;</span><br><span class="line">long fl(long b,long e)</span><br><span class="line">&#123;</span><br><span class="line">    if (b==e)//判断边界条件</span><br><span class="line">    &#123;</span><br><span class="line">        for (long i=0;i&lt;q.size();i++)</span><br><span class="line">            if (q[i]==z[b]) </span><br><span class="line">            &#123;</span><br><span class="line">                a[i]=1;</span><br><span class="line">                break;</span><br><span class="line">            &#125; </span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        for (long i=0;i&lt;q.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (long j=b;j&lt;=e;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (q[i]==z[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    long lsl=0,rsl=0;</span><br><span class="line">                    if (j&gt;b) lsl=fl(b,j-1);//递归左子树</span><br><span class="line">                    if (j&lt;e) rsl=fl(j+1,e);//递归右子树</span><br><span class="line">                    a[i]=lsl+rsl;</span><br><span class="line">                    return a[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin&gt;&gt;q&gt;&gt;z;</span><br><span class="line">    a[0]=fl(0,z.size()-1);</span><br><span class="line">    for (long i=0;i&lt;q.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (long j=0;j&lt;a[i];j++)</span><br><span class="line">        cout&lt;&lt;q[i];</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这道题神似noip2017里面的小凯的疑惑，但是好想很多。</p>
+<p>显然，在这道题中，对于一个货币系统如果有一个货币面值可以被其它面值的货币表示出来，那么这个货币面值就可以被删掉（因为完全可以由其它的代替）。但是，如果一个货币面值无法被其它面值的货币表示出来，那么它就一定不能删掉，不然会导致有一些本来可以被组出来的组不出来（最明显的例子就是它本身）。所以，我们只要找出可以被其它面值的货币表示出来的货币面值数量，从总数中减去就好了。这可以用完全背包实现。根据常识，因为面值都是非负的，所以每个面值只有可能被比它小的面值组成，所以先排序，再从小到大进行完全背包即可。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long t; long n,a[150]; bool f[30000];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    for (long i=0;i&lt;t;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        memset(a,0,sizeof(a));</span><br><span class="line">        memset(f,false,sizeof(f));</span><br><span class="line">        cin&gt;&gt;n;</span><br><span class="line">        long ans=n;</span><br><span class="line">        for (long j=0;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin&gt;&gt;a[j];</span><br><span class="line">        &#125;</span><br><span class="line">        f[0]=true;</span><br><span class="line">        sort(a,a+n);</span><br><span class="line">        for (long j=0;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (f[a[j]])</span><br><span class="line">            &#123;</span><br><span class="line">                ans--;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            for (long k=a[j];k&lt;=a[n-1];k++)</span><br><span class="line">            &#123;</span><br><span class="line">                f[k]=(f[k]||f[k-a[j]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -563,8 +535,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/24/c++学习错误总结板/" rel="next" title="c++学习错误总结板">
-                <i class="fa fa-chevron-left"></i> c++学习错误总结板
+              <a href="/2019/07/31/noip2017提高组d2t2宝藏解题报告/" rel="next" title="noip2017提高组d2t2宝藏解题报告">
+                <i class="fa fa-chevron-left"></i> noip2017提高组d2t2宝藏解题报告
               </a>
             
           </div>
@@ -572,10 +544,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/19/noip2017提高组d1t1小凯的疑惑题解/" rel="prev" title="noip2017提高组d1t1小凯的疑惑题解">
-                noip2017提高组d1t1小凯的疑惑题解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -624,8 +592,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -741,6 +718,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
