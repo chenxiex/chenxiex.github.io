@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[noip2017提高组d2t2宝藏解题报告]]></title>
+    <url>%2F2019%2F07%2F31%2Fnoip2017%E6%8F%90%E9%AB%98%E7%BB%84d2t2%E5%AE%9D%E8%97%8F%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
+    <content type="text"><![CDATA[解题思路因为不知道怎么dp，所以就写了个dfs。 每次dfs枚举所有已扩展的点和要扩展的点，逐一连接尝试就行。加上最优化剪枝和搜索序的改进（每次优先扩展短的道路）还有一些小剪枝后就可以了。 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;algorithm&gt;using namespace std;long n,m,ans=0x3f3f3f3f,to[20][20],num[20],d[20],a[20][20],tmp=0,p,s[20],tot,cnt;bool cmp(int c, int b) &#123; return a[p][c]&lt;a[p][b];&#125;void dfs(long ncnt,long node)&#123; for (long i=ncnt;i&lt;=cnt;i++) &#123; long i1=s[i]; if (tot+tmp*d[i1]&gt;=ans) return; for (long j=node;j&lt;=num[i1];j++) &#123; if (d[to[i1][j]]==0) &#123; long j1=to[i1][j]; s[++cnt]=j1; d[j1]=d[i1]+1; tmp-=a[j1][to[j1][1]]; long tot1=tot; tot+=a[i1][j1]*d[i1]; dfs(i,j+1); d[j1]=0; tmp+=a[j1][to[j1][1]]; tot=tot1; cnt--; &#125; &#125; node=1; &#125; if (cnt==n) &#123; ans=min(ans,tot); return; &#125;&#125;int main()&#123; cin&gt;&gt;n&gt;&gt;m; memset(a,0x3f,sizeof(a)); for (long i=0;i&lt;m;i++) &#123; long x,y,z; cin&gt;&gt;x&gt;&gt;y&gt;&gt;z; if (z&gt;a[x][y]) continue; if (a[x][y]==0x3f3f3f3f) &#123; to[x][++num[x]]=y; to[y][++num[y]]=x; &#125; a[x][y]=a[y][x]=z; &#125; for(long i=1;i&lt;=n;i++) &#123; p=i; sort(to[i]+1,to[i]+num[i]+1,cmp); tmp+=a[i][to[i][1]]; &#125; for (long i=1;i&lt;=n;i++) &#123; memset(s,0,sizeof(s)); tot=0; cnt=1; s[1]=i; tmp-=a[i][to[i][1]]; d[i]=1; dfs(1,1); d[i]=0; tmp+=a[i][to[i][1]]; &#125; cout&lt;&lt;ans; return 0;&#125;]]></content>
+      <categories>
+        <category>编程学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>解题报告</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[noip2018提高组d1t1铺设道路解题报告]]></title>
     <url>%2F2019%2F07%2F30%2Fnoip2018%E6%8F%90%E9%AB%98%E7%BB%84d1t1%E9%93%BA%E8%AE%BE%E9%81%93%E8%B7%AF%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[解题思路用笔算模拟了几组数据，发现是贪心。即对于每个坑，如果它比前面的坑大，就把它填到和前面的坑一样平，最后在一起填掉就行。 代码1234567891011121314#include&lt;iostream&gt;using namespace std;long n,ans; long a[100005];int main()&#123; cin&gt;&gt;n; for (long i=1;i&lt;=n;i++) &#123; cin&gt;&gt;a[i]; if (a[i]&gt;a[i-1]) ans+=a[i]-a[i-1]; &#125; cout&lt;&lt;ans; return 0;&#125;]]></content>
