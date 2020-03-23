@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -78,12 +78,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,14 +213,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>很明显是一道用栈的模拟题。但是由于输入格式比较特殊，涉及到字符串处理，且情况比较多，需小心调试。</p>
-<a id="more"></a>
-<p>首先要解决的就是输入问题。因为有空格或回车符分隔，所以可以直接用cin读入t和l，然后用getline读入时间复杂度和代码。时间复杂度用字符串o存储，代码用字符串数组r存储。</p>
-<p>然后要解决字符串的处理问题。可以用一个子程序提取字符串中的数据。这里用子程序getn来提取字符串中第一个数或n。如果提取到数则返回数，提取到n则返回-1234。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">long getn(string a)</span><br><span class="line">&#123;</span><br><span class="line">    long ans&#x3D;0;</span><br><span class="line">    bool f&#x3D;false;</span><br><span class="line">    for (long i&#x3D;0;i&lt;a.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (a[i]&#x3D;&#x3D;&#39;n&#39;) return -1234;</span><br><span class="line">        if (a[i]&gt;&#x3D;&#39;0&#39;&amp;&amp;a[i]&lt;&#x3D;&#39;9&#39;)</span><br><span class="line">        &#123;</span><br><span class="line">            f&#x3D;true;</span><br><span class="line">            ans&#x3D;ans*10+(a[i]-&#39;0&#39;);</span><br><span class="line">            continue;</span><br><span class="line">        &#125; </span><br><span class="line">        if (f) return ans;</span><br><span class="line">    &#125;</span><br><span class="line">    if (f) return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因为本题中时间复杂度实际上就是由n的次数(w)决定的，所以用子程序geto提取输入的时间复杂度存储在变量w中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void geto(string o)</span><br><span class="line">&#123;</span><br><span class="line">    long p&#x3D;o.find(&quot;(&quot;);</span><br><span class="line">    if (o[p+1]&#x3D;&#x3D;&#39;1&#39;)</span><br><span class="line">    &#123;</span><br><span class="line">        w&#x3D;0;</span><br><span class="line">        return;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        p&#x3D;o.find(&quot;^&quot;);</span><br><span class="line">        string a1&#x3D;o.substr(p+1,o.size()-p);</span><br><span class="line">        w&#x3D;getn(a1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>之后就进入问题的核心了。首先明确目的有两个：计算时间复杂度和判错。判错这里有个简单的优化：如果程序行数为奇数，则循环一定无法配对，是错的，可以直接输出ERR并continue。如果是偶数，就模拟循环。先不考虑程序有错误的情况。用字符数组z来模拟栈。如果一行程序以’F’开头则压栈(将变量名i存入栈中)，并提取出起始值x和终值y。如果x!=n且y=n，就将次数qw+1，否则为常数次数，无需理会。如果以’E’开头则弹栈。</p>
+        <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>很明显是一道用栈的模拟题。但是由于输入格式比较特殊，涉及到字符串处理，且情况比较多，需小心调试。<br><a id="more"></a><br>首先要解决的就是输入问题。因为有空格或回车符分隔，所以可以直接用cin读入t和l，然后用getline读入时间复杂度和代码。时间复杂度用字符串o存储，代码用字符串数组r存储。</p>
+<p>然后要解决字符串的处理问题。可以用一个子程序提取字符串中的数据。这里用子程序getn来提取字符串中第一个数或n。如果提取到数则返回数，提取到n则返回-1234。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">long getn(string a)</span><br><span class="line">&#123;</span><br><span class="line">    long ans&#x3D;0;</span><br><span class="line">    bool f&#x3D;false;</span><br><span class="line">    for (long i&#x3D;0;i&lt;a.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (a[i]&#x3D;&#x3D;&#39;n&#39;) return -1234;</span><br><span class="line">        if (a[i]&gt;&#x3D;&#39;0&#39;&amp;&amp;a[i]&lt;&#x3D;&#39;9&#39;)</span><br><span class="line">        &#123;</span><br><span class="line">            f&#x3D;true;</span><br><span class="line">            ans&#x3D;ans*10+(a[i]-&#39;0&#39;);</span><br><span class="line">            continue;</span><br><span class="line">        &#125; </span><br><span class="line">        if (f) return ans;</span><br><span class="line">    &#125;</span><br><span class="line">    if (f) return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>因为本题中时间复杂度实际上就是由n的次数(w)决定的，所以用子程序geto提取输入的时间复杂度存储在变量w中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void geto(string o)</span><br><span class="line">&#123;</span><br><span class="line">    long p&#x3D;o.find(&quot;(&quot;);</span><br><span class="line">    if (o[p+1]&#x3D;&#x3D;&#39;1&#39;)</span><br><span class="line">    &#123;</span><br><span class="line">        w&#x3D;0;</span><br><span class="line">        return;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        p&#x3D;o.find(&quot;^&quot;);</span><br><span class="line">        string a1&#x3D;o.substr(p+1,o.size()-p);</span><br><span class="line">        w&#x3D;getn(a1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>之后就进入问题的核心了。首先明确目的有两个：计算时间复杂度和判错。判错这里有个简单的优化：如果程序行数为奇数，则循环一定无法配对，是错的，可以直接输出ERR并continue。如果是偶数，就模拟循环。先不考虑程序有错误的情况。用字符数组z来模拟栈。如果一行程序以’F’开头则压栈(将变量名i存入栈中)，并提取出起始值x和终值y。如果x!=n且y=n，就将次数qw+1，否则为常数次数，无需理会。如果以’E’开头则弹栈。</p>
 <p>接下来再考虑有错误的情况。有以下几种：</p>
 <ol>
 <li>‘F’比’E’多：只需在子程序退出前检查栈是否为空即可。</li>
@@ -453,6 +447,8 @@
 
   
 
+  
+
 
   
 
@@ -469,5 +465,5 @@
   </script>
 
   
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":false},"react":{"opacityDefault":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":false},"react":{"opacityDefault":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

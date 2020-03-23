@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -77,12 +77,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,9 +213,7 @@
 
       
         <p>题目链接： <a href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1366" target="_blank" rel="noopener">P1366二叉树输出</a><br>题目：<br>【题目描述】</p>
-<p>树的凹入表示法主要用于树的屏幕或打印输出，其表示的基本思想是兄弟间等长，一个结点的长度要不小于其子结点的长度。二叉树也可以这样表示，假设叶结点的长度为1，一个非叶结点的长度等于它的左右子树的长度之和。</p>
-<a id="more"></a>
-<p>一棵二叉树的一个结点用一个字母表示（无重复），输出时从根结点开始：</p>
+<p>树的凹入表示法主要用于树的屏幕或打印输出，其表示的基本思想是兄弟间等长，一个结点的长度要不小于其子结点的长度。二叉树也可以这样表示，假设叶结点的长度为1，一个非叶结点的长度等于它的左右子树的长度之和。<br><a id="more"></a><br>一棵二叉树的一个结点用一个字母表示（无重复），输出时从根结点开始：</p>
 <p>每行输出若干个结点字符（相同字符的个数等于该结点长度），</p>
 <p>如果该结点有左子树就递归输出左子树；</p>
 <p>如果该结点有右子树就递归输出右子树。</p>
@@ -224,17 +222,13 @@
 <p>两行，每行是由字母组成的字符串（一行的每个字符都是唯一的），分别表示二叉树的先序遍历和中序遍历的序列。</p>
 <p>【输出】</p>
 <p>行数等于该树的结点数，每行的字母相同。</p>
-<p>【输入样例】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ABCDEFG</span><br><span class="line">CBDAFEG</span><br></pre></td></tr></table></figure>
-<p>【输出样例】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AAAA</span><br><span class="line">BB</span><br><span class="line">C</span><br><span class="line">D</span><br><span class="line">EE</span><br><span class="line">F</span><br><span class="line">G</span><br></pre></td></tr></table></figure>
-
+<p>【输入样例】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ABCDEFG</span><br><span class="line">CBDAFEG</span><br></pre></td></tr></table></figure><br>【输出样例】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AAAA</span><br><span class="line">BB</span><br><span class="line">C</span><br><span class="line">D</span><br><span class="line">EE</span><br><span class="line">F</span><br><span class="line">G</span><br></pre></td></tr></table></figure></p>
 <p>解题思路：</p>
 <p>1.看到这道题的时候，第一个想法是建树，根据先序遍历和中序遍历，用一个结构体(struct)数组来存储树，记录每个节点和它的左右子节点、父节点。建好树后从根节点递归求得长度。我看了网络上的一些题解，也是使用了这种方法，这里就不再赘述。这里提供另一种解法。</p>
 <p>2.观察题目，题目中输出的顺序要求是：“输出时从根结点开始：每行输出若干个结点字符（相同字符的个数等于该结点长度），如果该结点有左子树就递归输出左子树；如果该结点有右子树就递归输出右子树。”想一想，这不是就是先序遍历的递归顺序吗？正好题目中给出了先序遍历，这样就有了做法：</p>
 <p>首先，先序遍历的第一个就是根节点，因此可以在中序遍历中找到根节点，分为左右子树进行递归求长度；递归中对于每一子树，从前到后枚举先序遍历的节点，并在子树中寻找，如果找到了那就是这颗子树的根(因为先序遍历是根在前)，再次递归。递归的边界条件是如果只有子树中只有一个节点就返回1。</p>
-<p>示例程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long a[256]; string q,z;</span><br><span class="line">long fl(long b,long e)</span><br><span class="line">&#123;</span><br><span class="line">    if (b&#x3D;&#x3D;e)&#x2F;&#x2F;判断边界条件</span><br><span class="line">    &#123;</span><br><span class="line">        for (long i&#x3D;0;i&lt;q.size();i++)</span><br><span class="line">            if (q[i]&#x3D;&#x3D;z[b]) </span><br><span class="line">            &#123;</span><br><span class="line">                a[i]&#x3D;1;</span><br><span class="line">                break;</span><br><span class="line">            &#125; </span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        for (long i&#x3D;0;i&lt;q.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (long j&#x3D;b;j&lt;&#x3D;e;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (q[i]&#x3D;&#x3D;z[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    long lsl&#x3D;0,rsl&#x3D;0;</span><br><span class="line">                    if (j&gt;b) lsl&#x3D;fl(b,j-1);&#x2F;&#x2F;递归左子树</span><br><span class="line">                    if (j&lt;e) rsl&#x3D;fl(j+1,e);&#x2F;&#x2F;递归右子树</span><br><span class="line">                    a[i]&#x3D;lsl+rsl;</span><br><span class="line">                    return a[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin&gt;&gt;q&gt;&gt;z;</span><br><span class="line">    a[0]&#x3D;fl(0,z.size()-1);</span><br><span class="line">    for (long i&#x3D;0;i&lt;q.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (long j&#x3D;0;j&lt;a[i];j++)</span><br><span class="line">        cout&lt;&lt;q[i];</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long a[256]; string q,z;</span><br><span class="line">long fl(long b,long e)</span><br><span class="line">&#123;</span><br><span class="line">    if (b&#x3D;&#x3D;e)&#x2F;&#x2F;判断边界条件</span><br><span class="line">    &#123;</span><br><span class="line">        for (long i&#x3D;0;i&lt;q.size();i++)</span><br><span class="line">            if (q[i]&#x3D;&#x3D;z[b]) </span><br><span class="line">            &#123;</span><br><span class="line">                a[i]&#x3D;1;</span><br><span class="line">                break;</span><br><span class="line">            &#125; </span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        for (long i&#x3D;0;i&lt;q.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (long j&#x3D;b;j&lt;&#x3D;e;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (q[i]&#x3D;&#x3D;z[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    long lsl&#x3D;0,rsl&#x3D;0;</span><br><span class="line">                    if (j&gt;b) lsl&#x3D;fl(b,j-1);&#x2F;&#x2F;递归左子树</span><br><span class="line">                    if (j&lt;e) rsl&#x3D;fl(j+1,e);&#x2F;&#x2F;递归右子树</span><br><span class="line">                    a[i]&#x3D;lsl+rsl;</span><br><span class="line">                    return a[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin&gt;&gt;q&gt;&gt;z;</span><br><span class="line">    a[0]&#x3D;fl(0,z.size()-1);</span><br><span class="line">    for (long i&#x3D;0;i&lt;q.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (long j&#x3D;0;j&lt;a[i];j++)</span><br><span class="line">        cout&lt;&lt;q[i];</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
     </div>
 
     
@@ -456,6 +450,8 @@
 
   
 
+  
+
 
   
 
@@ -472,5 +468,5 @@
   </script>
 
   
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":false},"react":{"opacityDefault":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":false},"react":{"opacityDefault":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

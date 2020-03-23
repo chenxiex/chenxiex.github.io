@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -77,12 +77,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,9 +212,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这道题神似noip2017里面的小凯的疑惑，但是好想很多。</p>
-<a id="more"></a>
-<p>显然，在这道题中，对于一个货币系统如果有一个货币面值可以被其它面值的货币表示出来，那么这个货币面值就可以被删掉（因为完全可以由其它的代替）。但是，如果一个货币面值无法被其它面值的货币表示出来，那么它就一定不能删掉，不然会导致有一些本来可以被组出来的组不出来（最明显的例子就是它本身）。所以，我们只要找出可以被其它面值的货币表示出来的货币面值数量，从总数中减去就好了。这可以用完全背包实现。根据常识，因为面值都是非负的，所以每个面值只有可能被比它小的面值组成，所以先排序，再从小到大进行完全背包即可。</p>
+        <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这道题神似noip2017里面的小凯的疑惑，但是好想很多。<br><a id="more"></a><br>显然，在这道题中，对于一个货币系统如果有一个货币面值可以被其它面值的货币表示出来，那么这个货币面值就可以被删掉（因为完全可以由其它的代替）。但是，如果一个货币面值无法被其它面值的货币表示出来，那么它就一定不能删掉，不然会导致有一些本来可以被组出来的组不出来（最明显的例子就是它本身）。所以，我们只要找出可以被其它面值的货币表示出来的货币面值数量，从总数中减去就好了。这可以用完全背包实现。根据常识，因为面值都是非负的，所以每个面值只有可能被比它小的面值组成，所以先排序，再从小到大进行完全背包即可。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long t; long n,a[150]; bool f[30000];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    for (long i&#x3D;0;i&lt;t;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        memset(a,0,sizeof(a));</span><br><span class="line">        memset(f,false,sizeof(f));</span><br><span class="line">        cin&gt;&gt;n;</span><br><span class="line">        long ans&#x3D;n;</span><br><span class="line">        for (long j&#x3D;0;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin&gt;&gt;a[j];</span><br><span class="line">        &#125;</span><br><span class="line">        f[0]&#x3D;true;</span><br><span class="line">        sort(a,a+n);</span><br><span class="line">        for (long j&#x3D;0;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (f[a[j]])</span><br><span class="line">            &#123;</span><br><span class="line">                ans--;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            for (long k&#x3D;a[j];k&lt;&#x3D;a[n-1];k++)</span><br><span class="line">            &#123;</span><br><span class="line">                f[k]&#x3D;(f[k]||f[k-a[j]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -438,6 +436,8 @@
 
   
 
+  
+
 
   
 
@@ -454,5 +454,5 @@
   </script>
 
   
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":false},"react":{"opacityDefault":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":false},"react":{"opacityDefault":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

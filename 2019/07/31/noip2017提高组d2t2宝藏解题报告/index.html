@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -77,12 +77,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,9 +212,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>因为不知道怎么dp，所以就写了个dfs。</p>
-<a id="more"></a>
-<p>每次dfs枚举所有已扩展的点和要扩展的点，逐一连接尝试就行。加上最优化剪枝和搜索序的改进（每次优先扩展短的道路）还有一些小剪枝后就可以了。</p>
+        <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>因为不知道怎么dp，所以就写了个dfs。<br><a id="more"></a><br>每次dfs枚举所有已扩展的点和要扩展的点，逐一连接尝试就行。加上最优化剪枝和搜索序的改进（每次优先扩展短的道路）还有一些小剪枝后就可以了。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long n,m,ans&#x3D;0x3f3f3f3f,to[20][20],num[20],d[20],a[20][20],tmp&#x3D;0,p,s[20],tot,cnt;</span><br><span class="line">bool cmp(int c, int b) </span><br><span class="line">&#123;</span><br><span class="line">    return a[p][c]&lt;a[p][b];</span><br><span class="line">&#125;</span><br><span class="line">void dfs(long ncnt,long node)</span><br><span class="line">&#123;</span><br><span class="line">    for (long i&#x3D;ncnt;i&lt;&#x3D;cnt;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        long i1&#x3D;s[i];</span><br><span class="line">        if (tot+tmp*d[i1]&gt;&#x3D;ans) return;</span><br><span class="line">        for (long j&#x3D;node;j&lt;&#x3D;num[i1];j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (d[to[i1][j]]&#x3D;&#x3D;0)</span><br><span class="line">            &#123;</span><br><span class="line">                long j1&#x3D;to[i1][j];</span><br><span class="line">                s[++cnt]&#x3D;j1;</span><br><span class="line">                d[j1]&#x3D;d[i1]+1;</span><br><span class="line">                tmp-&#x3D;a[j1][to[j1][1]];</span><br><span class="line">                long tot1&#x3D;tot;</span><br><span class="line">                tot+&#x3D;a[i1][j1]*d[i1];</span><br><span class="line">                dfs(i,j+1);</span><br><span class="line">                d[j1]&#x3D;0;</span><br><span class="line">                tmp+&#x3D;a[j1][to[j1][1]];</span><br><span class="line">                tot&#x3D;tot1;</span><br><span class="line">                cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        node&#x3D;1;</span><br><span class="line">    &#125;</span><br><span class="line">    if (cnt&#x3D;&#x3D;n)</span><br><span class="line">    &#123;</span><br><span class="line">        ans&#x3D;min(ans,tot);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    memset(a,0x3f,sizeof(a));</span><br><span class="line">    for (long i&#x3D;0;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        long x,y,z;</span><br><span class="line">        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        if (z&gt;a[x][y]) continue;</span><br><span class="line">        if (a[x][y]&#x3D;&#x3D;0x3f3f3f3f)</span><br><span class="line">        &#123;</span><br><span class="line">            to[x][++num[x]]&#x3D;y; to[y][++num[y]]&#x3D;x;</span><br><span class="line">        &#125;</span><br><span class="line">        a[x][y]&#x3D;a[y][x]&#x3D;z;</span><br><span class="line">    &#125;</span><br><span class="line">    for(long i&#x3D;1;i&lt;&#x3D;n;i++) </span><br><span class="line">    &#123;</span><br><span class="line">        p&#x3D;i;</span><br><span class="line">        sort(to[i]+1,to[i]+num[i]+1,cmp);</span><br><span class="line">        tmp+&#x3D;a[i][to[i][1]];</span><br><span class="line">    &#125;</span><br><span class="line">    for (long i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        memset(s,0,sizeof(s));</span><br><span class="line">        tot&#x3D;0; cnt&#x3D;1;</span><br><span class="line">        s[1]&#x3D;i;</span><br><span class="line">        tmp-&#x3D;a[i][to[i][1]];</span><br><span class="line">        d[i]&#x3D;1;</span><br><span class="line">        dfs(1,1);</span><br><span class="line">        d[i]&#x3D;0;</span><br><span class="line">        tmp+&#x3D;a[i][to[i][1]];</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -438,6 +436,8 @@
 
   
 
+  
+
 
   
 
@@ -454,5 +454,5 @@
   </script>
 
   
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":false},"react":{"opacityDefault":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/ Relative)","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":360},"mobile":{"show":false},"react":{"opacityDefault":0.7}});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
