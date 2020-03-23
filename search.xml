@@ -3,7 +3,7 @@
   <entry>
     <title>Markdown进阶之插入LaTex数学公式</title>
     <url>/2020/03/14/Markdown%E8%BF%9B%E9%98%B6%E4%B9%8B%E6%8F%92%E5%85%A5LaTex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Markdown进阶之插入LaTeX数学公式"><a href="#Markdown进阶之插入LaTeX数学公式" class="headerlink" title="Markdown进阶之插入LaTeX数学公式"></a>Markdown进阶之插入LaTeX数学公式</h1><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在编写Markdown的过程中，不可避免地会出现需要插入数学公式的情况。此处使用LaTex语法插入数学公式。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在编写Markdown的过程中，不可避免地会出现需要插入数学公式的情况。此处使用LaTex语法插入数学公式。</p>
 <a id="more"></a>（编者使用的是Typora编写LaTex，此时插入行间公式需在文件-偏好设置-Markdown中开启“内联公式”选项）
 
 #### 插入公式
